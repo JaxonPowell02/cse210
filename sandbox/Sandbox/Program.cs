@@ -5,13 +5,13 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello Sandbox World!");
-        // Console.WriteLine("Please enter your name");
+        Console.WriteLine("Please enter your name");
 
-        // String name;
+        String name;
 
-        // name = Console.ReadLine();
+        name = Console.ReadLine();
 
-        // Console.WriteLine($"Your name is: {name}");
+        Console.WriteLine($"Your name is: {name}");
         Console.Write("Input your age: ");
         string userInput = Console.ReadLine();
         int age = int.Parse(userInput);
