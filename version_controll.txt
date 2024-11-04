@@ -1,0 +1,15 @@
+What is version control and why is it important?
+Version control is basically being able to control the different versions of your 
+project or code. For example using visual studio code and github. You can create
+code or add to existing code and then you can upload what you have to the git hub servers.
+After that you can continue to work on the code and if things go wrong, you have a history
+of your code and you can go back and restore it. Being able to restore your code and see previous 
+versions of your code is a big benefit of version control. A command that is used for git hub is 
+git status, this command will tell you if you have changes that need to be added to the git hub server.
+
+
+Explain the meaning of Version Control
+Highlight a benefit of Version Control
+Provide an application of Version Control. This means, provide an example of how Version Control could be used.
+Show a command used in Version Control (for example a Git command)
+Thoroughly explain these concepts (this likely cannot be done in less than 100 words)
