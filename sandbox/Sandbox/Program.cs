@@ -1,20 +1,48 @@
 using System;
+using System.Text.RegularExpressions;
 /*I am adding something to see where it goes*/
 class Program
 {
-
-    static int AddNumbers(int n1, int n2)
+    class Circle
     {
-        int total = n1 + n2;
-        return total;
+        private double radius;
+
+        public Circle(double radius)
+        {
+            this.radius = radius;
+        }
+
+        public double GetArea()
+        {
+            return Math.PI * radius * radius;
+        }
+
     }
     static void Main(string[] args)
     {
-       int total = AddNumbers(20, 30);
-        Console.WriteLine(total);
+        Console.WriteLine("test");
+
+        int x = 10;
+        
+        Circle myCircle = new Circle(x);
+
+        Console.WriteLine(myCircle.GetArea());
+      
     }
 }
 
+
+
+    // static int AddNumbers(int n1, int n2)
+    // {
+    //     int total = n1 + n2;
+    //     return total;
+    // }
+    // static void Main(string[] args)
+    // {
+    //    int total = AddNumbers(20, 30);
+    //     Console.WriteLine(total);
+    // }
 
 
 
