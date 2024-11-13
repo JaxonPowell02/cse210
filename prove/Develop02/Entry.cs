@@ -57,7 +57,7 @@ class Entry
         Console.WriteLine($"Prompt: {_prompt}");
         Console.WriteLine($"Response: {_response}");
 
-        return "Journal Complete";
+        return "";
     }
 }
 

@@ -1,4 +1,4 @@
-using System.IO; 
+
 
 class Journal
 {
@@ -16,7 +16,7 @@ class Journal
         if (Entries.Count == 0)
         {
             Console.WriteLine("***No entries to display.***");
-            return;
+            
         }
 
         foreach (Entry entry in Entries)
@@ -62,6 +62,8 @@ class Journal
         }
         // Console.WriteLine("***All entries have been added from the file***");
     }
+
+    
 
 
 
