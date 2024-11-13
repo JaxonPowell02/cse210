@@ -15,7 +15,7 @@ class Journal
     {
         if (Entries.Count == 0)
         {
-            // Console.WriteLine("***No entries to display.***");
+            Console.WriteLine("***No entries to display.***");
             return;
         }
 

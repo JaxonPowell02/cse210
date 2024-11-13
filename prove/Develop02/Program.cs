@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Journal myJournal = new Journal(); // this creates a new instance of the class.
+        Journal myJournal = new Journal(); // this creates a new instance of the class Journal.
         while (true)
         {
 

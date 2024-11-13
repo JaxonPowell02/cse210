@@ -51,11 +51,13 @@ class Entry
         return $"{_date}|{_prompt}|{_response}";
     }
 
-    public void DisplayJournal()
+    public string DisplayJournal()
     {
         Console.WriteLine($"Date: {_date}");
         Console.WriteLine($"Prompt: {_prompt}");
         Console.WriteLine($"Response: {_response}");
+
+        return "Journal Complete";
     }
 }
 
