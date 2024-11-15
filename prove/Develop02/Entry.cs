@@ -6,6 +6,7 @@ class Entry
     private string _date;
     private string _prompt;
     private string _response;
+    private string _mood;
 
     //Constructor that will set the correct values when reading from a file.
     public void SetDate(string date)
@@ -20,6 +21,10 @@ class Entry
     {
         _response = response;
     }
+    public void SetMood(string mood)
+    {
+        _mood = mood;
+    }
 
 
     public void AddEntry()
@@ -30,6 +35,9 @@ class Entry
         Console.WriteLine(_prompt);
         Console.Write("");
         _response = Console.ReadLine();
+
+        Console.WriteLine("What is your mood:");
+        _mood = Console.ReadLine();
 
         // string usedPrompt = Prompts.PrintPrompt();
         // Console.WriteLine(Prompts.PrintPrompt());
@@ -48,7 +56,7 @@ class Entry
 
     public override string ToString()
     {
-        return $"{_date}|{_prompt}|{_response}";
+        return $"{_date}|{_prompt}|{_response}|{_mood}";
     }
 
     public string DisplayJournal()
@@ -56,6 +64,7 @@ class Entry
         Console.WriteLine($"Date: {_date}");
         Console.WriteLine($"Prompt: {_prompt}");
         Console.WriteLine($"Response: {_response}");
+        Console.WriteLine($"Mood: {_mood}");
 
         return "";
     }

@@ -57,6 +57,7 @@ class Journal
             entry.SetDate(parts[0]);
             entry.SetPrompt(parts[1]);
             entry.SetResponse(parts[2]);
+            entry.SetMood(parts[3]);
             Entries.Add(entry);
 
         }
