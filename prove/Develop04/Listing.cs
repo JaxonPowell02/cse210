@@ -15,7 +15,7 @@
 
     public void Run()
     {
-        Start();
+        Start("listing activity");
         Random random = new Random();
         string prompt = Prompts[random.Next(Prompts.Length)];
         Console.WriteLine(prompt);

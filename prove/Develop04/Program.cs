@@ -4,6 +4,7 @@ public class Program
 {
     public static void Main(string[] args)
     {
+        int activityCounter = 0;
         while (true)
         {
             DisplayMenu();
@@ -27,7 +28,10 @@ public class Program
                     Console.WriteLine("Invalid choice. Try again.");
                     break;
             }
+            activityCounter += 1;
+            Console.WriteLine($"\nNumber of activities completed {activityCounter}.");
         }
+        
     }
 
     private static void DisplayMenu()

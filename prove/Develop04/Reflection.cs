@@ -31,7 +31,7 @@ class Reflection : Activity
 
     public void Run()
     {
-        Start();
+        Start("reflecting activity");
         Console.WriteLine("Reflection Activity: Explore your inner thoughts\n");
 
         Random random = new Random();

@@ -17,15 +17,16 @@ public class Activity
         return userDuration;
     }
 
-    public void Start()
+    public void Start(string name)
     {
-        Console.WriteLine("Starting activity...\n");
+        Console.WriteLine($"Starting activity {name}\n");
         Spinner(5000);
     }
 
     public void End()
     {
         Console.WriteLine("\nActivity completed!");
+        Spinner(5000);
     }
 
     public void Pause(int seconds)

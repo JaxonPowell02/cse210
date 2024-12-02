@@ -3,14 +3,9 @@ public class Breathing : Activity
     public Breathing(string description, int duration) : base(description, duration)
     {
     }
-
-    private void CountDown()
-    {
-
-    }
     public void Run(int duration)
     {
-        Start(); // Call Start from Activity class
+        Start("breathing activity"); // Call Start from Activity class
         Console.WriteLine("Breathing Activity: Focus on your breathing");
 
         for (int i = 0; i < duration; i += 10)
