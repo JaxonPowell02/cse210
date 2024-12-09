@@ -1,0 +1,75 @@
++---------------------+
+|      Bank           |
++---------------------+
+| - name: string
+| - accounts: List<BankAccount>
++---------------------+
+| + AddAccount(account: BankAccount): void
+| + GetAccount(accountNumber: string): BankAccount
+| + GenerateReports(): void
++---------------------+
+
++---------------------+
+|    BankAccount      |
++---------------------+
+| - accountNumber: string
+| - accountHolder: User
+| - balance: double
+| - transactions: List<Transaction>
++---------------------+
+| + Deposit(amount: double): void
+| + Withdraw(amount: double): bool
+| + GetBalance(): double
+| + AddTransaction(transaction: Transaction): void
++---------------------+
+
++---------------------+
+|   CheckingAccount   |
++---------------------+
+| - overdraftLimit: double
++---------------------+
+| + Withdraw(amount: double): bool
++---------------------+
+
++---------------------+
+|    SavingsAccount   |
++---------------------+
+| - interestRate: double
++---------------------+
+| + ApplyInterest(): void
++---------------------+
+
++---------------------+
+|       User          |
++---------------------+
+| - name: string
+| - address: string
+| - email: string
++---------------------+
+
++---------------------+
+|    Transaction      |
++---------------------+
+| - transactionId: string
+| - amount: double
+| - date: DateTime
+| - type: TransactionType
++---------------------+
+
++---------------------+
+|   TransactionType   |
++---------------------+
+| - DEPOSIT
+| - WITHDRAWAL
+| - TRANSFER
++---------------------+
+
++---------------------+
+|     AdminUser       |
++---------------------+
+| - adminId: string
+| - permissions: List<string>
++---------------------+
+| + GenerateAccountSummary(account: BankAccount): void
+| + FreezeAccount(account: BankAccount): void
++---------------------+

@@ -16,4 +16,9 @@
         return $"{_firstName}, {_lastName}, {_age}";
     }
 
+    public void SetFirstName(string firstName)
+    {
+        _firstName = firstName;
+    }
+
 }
