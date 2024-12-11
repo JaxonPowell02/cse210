@@ -2,7 +2,8 @@ class Menu
 {
     public int MainMenu()
     {
-        int value = 0;
+        while (true)
+        {
         Console.WriteLine("1. Animal Menu: ");
         Console.WriteLine("2. Crop Menu: ");
         Console.WriteLine("3. Machinery Menu");
@@ -12,73 +13,58 @@ class Menu
         string userInput = Console.ReadLine();
         int input = int.Parse(userInput);
 
-        switch (input)
-        {
-            case 1:
-                value = AnimalMenu();
-                break;
-            case 2: 
-                value = CropMenu();
-                break;
-            case 3:
-                value = MachineryMenu();
-                break;
-            case 4:
-                value = EmployeeMenu();
-                break;
-            
-        }
-        return value;
-    } 
+        return input;
+        }   
+    }
 
     public int AnimalMenu()
     {
-        Console.WriteLine("1. Add New Animal: ");
-        Console.WriteLine("2. Health Status: "); // This will display just the name and the health 
-        Console.WriteLine("3. Display Animal Details: ");
-        Console.WriteLine("Enter your choice (1-3) ");
-
-        string userInput = Console.ReadLine();
-        int input = int.Parse(userInput);
-        return input;
+        Console.WriteLine("\nAnimal Menu:");
+        Console.WriteLine("1. Add Animal");
+        Console.WriteLine("2. Display Animal Health Statuses");
+        Console.WriteLine("3. Display All Animals");
+        Console.WriteLine("4. Feed Animal");
+        Console.WriteLine("5. Remove Animal");
+        Console.WriteLine("6. Feed All Animals with Same ID"); // New option
+        Console.WriteLine("7. Back to Main Menu");
+        return int.Parse(Console.ReadLine());
     }
 
     public int CropMenu()
     {
-        Console.WriteLine("1. Add New Crop: ");
-        Console.WriteLine("2. Crop Status: "); // This will display just the name and the growth status 
-        Console.WriteLine("3. Display Crop Details: ");
-        Console.WriteLine("Enter your choice (1-3) ");
-
-        string userInput = Console.ReadLine();
-        int input = int.Parse(userInput);
-        input = input + 10;
-        return input;
+        Console.WriteLine("\nCrop Menu:");
+        Console.WriteLine("1. Add Crop");
+        Console.WriteLine("2. Display Crop Growth Statuses");
+        Console.WriteLine("3. Display All Crops");
+        Console.WriteLine("4. Remove Crop");
+        Console.WriteLine("5. Water All Crops with Same ID"); // New option
+        Console.WriteLine("6. Back to Main Menu");
+        return int.Parse(Console.ReadLine());
     }
+
 
     public int MachineryMenu()
     {
-        Console.WriteLine("1. Add New Machinery: ");
-        Console.WriteLine("2. Machinery Status: "); // This will display just the name and the useage staus
-        Console.WriteLine("3. Display Machinery Details: ");
-        Console.WriteLine("Enter your choice (1-3) ");
+        Console.WriteLine("1. Add New Machinery");
+        Console.WriteLine("2. Machinery Status");
+        Console.WriteLine("3. Display Machinery Details");
+        Console.WriteLine("4. Remove Machinery"); 
+        Console.WriteLine("5. Return to Main Menu");
+        Console.WriteLine("Enter your choice (1-4):");
 
-        string userInput = Console.ReadLine();
-        int input = int.Parse(userInput);
-        input = input +20;
-        return input;
+        return int.Parse(Console.ReadLine());
     }
 
     public int EmployeeMenu()
     {
-        Console.WriteLine("1. Add New Employee: ");
-        Console.WriteLine("2. Employee Status: ");
-        Console.WriteLine("3. Display Employee Details: ");
-        Console.WriteLine("Enter your choice (1-3) ");
+        Console.WriteLine("1. Add New Employee");
+        Console.WriteLine("2. Employee Status");
+        Console.WriteLine("3. Display Employee Details");
+        Console.WriteLine("4. Remove Employee"); 
+        Console.WriteLine("5. Return to Main Menu");
+        Console.WriteLine("Enter your choice (1-4):");
 
-        string userInput = Console.ReadLine();
-        int input = int.Parse(userInput);
-        input = input + 30;
-        return input;
+        return int.Parse(Console.ReadLine());
     }
+
 }

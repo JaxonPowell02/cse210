@@ -1,75 +1,248 @@
-+---------------------+
-|      Bank           |
-+---------------------+
-| - name: string
-| - accounts: List<BankAccount>
-+---------------------+
-| + AddAccount(account: BankAccount): void
-| + GetAccount(accountNumber: string): BankAccount
-| + GenerateReports(): void
-+---------------------+
+class Menu
+{
+    public int MainMenu()
+    {
+        int value = 0;
+        Console.WriteLine("1. Animal Menu: ");
+        Console.WriteLine("2. Crop Menu: ");
+        Console.WriteLine("3. Machinery Menu");
+        Console.WriteLine("4. Employee Menu: ");
+        Console.WriteLine("Enter your choice (1-4) ");
 
-+---------------------+
-|    BankAccount      |
-+---------------------+
-| - accountNumber: string
-| - accountHolder: User
-| - balance: double
-| - transactions: List<Transaction>
-+---------------------+
-| + Deposit(amount: double): void
-| + Withdraw(amount: double): bool
-| + GetBalance(): double
-| + AddTransaction(transaction: Transaction): void
-+---------------------+
+        string userInput = Console.ReadLine();
+        int input = int.Parse(userInput);
 
-+---------------------+
-|   CheckingAccount   |
-+---------------------+
-| - overdraftLimit: double
-+---------------------+
-| + Withdraw(amount: double): bool
-+---------------------+
+        switch (input)
+        {
+            case 1:
+                value = AnimalMenu();
+                break;
+            case 2: 
+                value = CropMenu();
+                break;
+            case 3:
+                value = MachineryMenu();
+                break;
+            case 4:
+                value = EmployeeMenu();
+                break;
+            
+        }
+        return value;
+    } 
 
-+---------------------+
-|    SavingsAccount   |
-+---------------------+
-| - interestRate: double
-+---------------------+
-| + ApplyInterest(): void
-+---------------------+
+    public int AnimalMenu()
+    {
+        Console.WriteLine("1. Add New Animal");
+        Console.WriteLine("2. Display Animal Health Statuses");
+        Console.WriteLine("3. Display Animal Details");
+        Console.WriteLine("4. Feed Animal"); 
+        Console.WriteLine("Enter your choice (1-4):");
 
-+---------------------+
-|       User          |
-+---------------------+
-| - name: string
-| - address: string
-| - email: string
-+---------------------+
+        int input = int.Parse(Console.ReadLine());
+        return input;
+    }
 
-+---------------------+
-|    Transaction      |
-+---------------------+
-| - transactionId: string
-| - amount: double
-| - date: DateTime
-| - type: TransactionType
-+---------------------+
 
-+---------------------+
-|   TransactionType   |
-+---------------------+
-| - DEPOSIT
-| - WITHDRAWAL
-| - TRANSFER
-+---------------------+
+    public int CropMenu()
+    {
+        Console.WriteLine("1. Add New Crop: ");
+        Console.WriteLine("2. Crop Status: "); // This will display just the name and the growth status 
+        Console.WriteLine("3. Display Crop Details: ");
+        Console.WriteLine("Enter your choice (1-3) ");
 
-+---------------------+
-|     AdminUser       |
-+---------------------+
-| - adminId: string
-| - permissions: List<string>
-+---------------------+
-| + GenerateAccountSummary(account: BankAccount): void
-| + FreezeAccount(account: BankAccount): void
-+---------------------+
+        string userInput = Console.ReadLine();
+        int input = int.Parse(userInput);
+        input = input + 10;
+        return input;
+    }
+
+    public int MachineryMenu()
+    {
+        Console.WriteLine("1. Add New Machinery: ");
+        Console.WriteLine("2. Machinery Status: "); // This will display just the name and the useage staus
+        Console.WriteLine("3. Display Machinery Details: ");
+        Console.WriteLine("Enter your choice (1-3) ");
+
+        string userInput = Console.ReadLine();
+        int input = int.Parse(userInput);
+        input = input +20;
+        return input;
+    }
+
+    public int EmployeeMenu()
+    {
+        Console.WriteLine("1. Add New Employee: ");
+        Console.WriteLine("2. Employee Status: ");
+        Console.WriteLine("3. Display Employee Details: ");
+        Console.WriteLine("Enter your choice (1-3) ");
+
+        string userInput = Console.ReadLine();
+        int input = int.Parse(userInput);
+        input = input + 30;
+        return input;
+    }
+}
+
+
+public class FarmManager
+{
+    private List<FarmEntity> entities = new List<FarmEntity>();
+
+    public void AddEntity(FarmEntity entity)
+    {
+        entities.Add(entity);
+        Console.WriteLine($"{entity.Name} added to the farm.");
+    }
+
+    public void RemoveEntity(int id)
+    {
+        var entity = entities.Find(e => e.ID == id);
+        if (entity != null)
+        {
+            entities.Remove(entity);
+            Console.WriteLine($"{entity.Name} removed from the farm.");
+        }
+        else
+        {
+            Console.WriteLine($"Entity with ID {id} not found.");
+        }
+    }
+
+    public void ViewAllEntities()
+    {
+        Console.WriteLine("Farm Entities:");
+        foreach (var entity in entities)
+        {
+            entity.DisplayDetails();
+            Console.WriteLine();
+        }
+    }
+
+    public void DisplayAllAnimals()
+    {
+        foreach (var entity in entities)
+        {
+            if (entity is Animal animal)
+            {
+                animal.DisplayDetails();
+            }
+        }
+    }
+
+
+    public void FeedAnimal()
+    {
+
+        Console.WriteLine("Enter the ID of the animal to feed:");
+        int id = int.Parse(Console.ReadLine());
+        foreach (var entity in entities)
+        {
+            if (entity is Animal animal && animal.ID == id)
+            {
+                animal.Feed();
+                return;
+            }
+        }
+        Console.WriteLine("Animal not found.");
+    }
+
+
+}
+
+public class Employee : FarmEntity
+{
+    public string Role;
+    public double HoursWorked;
+
+    public override void DisplayDetails()
+    {
+        base.DisplayDetails();
+        Console.WriteLine($"Role: {Role}, Hours Worked: {HoursWorked}");
+    }
+}
+
+public class Equipment : FarmEntity
+{
+    public string Type;
+    public string UsageStatus;
+
+    public override void DisplayDetails()
+    {
+        base.DisplayDetails();
+        Console.WriteLine($"Type: {Type}, Usage Status: {UsageStatus}");
+    }
+}
+
+public class Crop : FarmEntity
+{
+    public string Type;
+    public string GrowthStage;
+
+    public override void DisplayDetails()
+    {
+        base.DisplayDetails();
+        Console.WriteLine($"Type: {Type}, Growth Stage: {GrowthStage}");
+    }
+
+    public void Water()
+    {
+        Console.WriteLine($"{Name} (Crop) has been watered.");
+    }
+}
+
+public class Animal : FarmEntity
+{
+    public string Species { get; set; }
+    public string HealthStatus { get; set; }
+    public DateTime DateAdded { get; set; }
+    public DateTime? LastFed { get; private set; } // Nullable to indicate it may not have been fed yet
+
+    // Constructor
+    public Animal(int id, string name, string species, string healthStatus, DateTime dateAdded)
+    {
+        ID = id;
+        Name = name;
+        Species = species;
+        HealthStatus = healthStatus;
+        DateAdded = dateAdded;
+        LastFed = null; // Initially, the animal has not been fed
+    }
+
+    // Display details about the animal
+    public override void DisplayDetails()
+    {
+        base.DisplayDetails();
+        Console.WriteLine($"Species: {Species}, Health Status: {HealthStatus}, Date Added: {DateAdded}");
+        if (LastFed.HasValue)
+        {
+            Console.WriteLine($"Last Fed: {LastFed.Value}");
+        }
+        else
+        {
+            Console.WriteLine("Last Fed: Never");
+        }
+    }
+
+    // Feed method
+    public void Feed()
+    {
+        LastFed = DateTime.Now; // Update LastFed with the current time
+        Console.WriteLine($"{Name} the {Species} has been fed at {LastFed.Value}.");
+    }
+}
+
+
+public class FarmEntity
+{
+    public int ID;
+    public string Name;
+
+
+
+
+    public virtual void DisplayDetails()
+    {
+        Console.WriteLine($"ID: {ID}, Name: {Name}");
+    }
+}
