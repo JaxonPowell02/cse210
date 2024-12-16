@@ -37,8 +37,7 @@ class Menu
         Console.WriteLine("2. Display Crop Growth Statuses");
         Console.WriteLine("3. Display All Crops");
         Console.WriteLine("4. Remove Crop");
-        Console.WriteLine("5. Water All Crops with Same ID"); // New option
-        Console.WriteLine("6. Back to Main Menu");
+        Console.WriteLine("5. Back to Main Menu");
         return int.Parse(Console.ReadLine());
     }
 
